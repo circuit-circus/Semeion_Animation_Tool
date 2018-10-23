@@ -1,5 +1,5 @@
 GUI myGUI;
-Curve myCurve;
+ArrayList<Animation> animations;
 
 void setup() {
   size(600, 600);
@@ -7,25 +7,22 @@ void setup() {
   smooth();
   myGUI = new GUI();
   colorMode(HSB); 
-  myCurve = new Curve();
-
+  animations.add(new Animation());
 }
 
 void draw() {
   background(0);
   myGUI.display();
-  myCurve.display();
 }
 
 void mouseDragged(){
-  myCurve.mouseDragged();
+  myGUI.mouseDragged();
 }
 
 void mouseReleased(){
-  myCurve.mouseReleased();
+  myGUI.mouseReleased();
 }
 
 void keyPressed(){
-  myCurve.keyPressed();
-
+  myGUI.keyPressed();
 }
