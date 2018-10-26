@@ -1,13 +1,14 @@
 GUI myGUI;
-ArrayList<Animation> animations;
+Animation animation;
+boolean isPlaying;
 
 void setup() {
-  size(600, 600);
+  size(1800, 900);
 
   smooth();
+  animation = new Animation();
   myGUI = new GUI();
-  colorMode(HSB); 
-  animations.add(new Animation());
+  colorMode(HSB);
 }
 
 void draw() {
@@ -15,14 +16,20 @@ void draw() {
   myGUI.display();
 }
 
-void mouseDragged(){
+
+void mouseDragged() {
   myGUI.mouseDragged();
 }
 
-void mouseReleased(){
+void mouseReleased() {
   myGUI.mouseReleased();
 }
 
-void keyPressed(){
+void keyPressed() {
+
+  if (key == ' ') {
+    isPlaying = !isPlaying;
+  }
+
   myGUI.keyPressed();
 }
