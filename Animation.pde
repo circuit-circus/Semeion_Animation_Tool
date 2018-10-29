@@ -3,13 +3,13 @@ class Animation {
   float duration;
   int iterator = 0;
   boolean hasEnded = false;
-  float t;  //<>//
+  float t;    //<>//
 
   Animation() {
     myCurves = new ArrayList();
     myCurves.add(new Curve()); 
-    myCurves.add(new Curve(0, 0, 0, 1.5, 0.8, 0.5, 1, 0.5, 300));
-    myCurves.add(new Curve(0, 0.5, 0.5, 0.13, 0.74, 1.7, 1, 0, 100));
+    myCurves.add(new Curve(0, 0, 0, 1.5, 0.8, 0.5, 1, 0.5, 30));
+    myCurves.add(new Curve(0, 0.5, 0.5, 0.13, 0.74, 1.7, 1, 0, 10));
   }
 
   void addCurve() {
@@ -26,6 +26,14 @@ class Animation {
 
   void rewind() {
     hasEnded = false;
+  }
+  
+  void stepForward(){
+    t += 1 / myCurves.get(iterator).curve[8]; 
+  }
+  
+  void stepBackward(){
+    t -= 1 / myCurves.get(iterator).curve[8];
   }
 
   float getDuration() {
@@ -71,7 +79,7 @@ class Animation {
       }
     }
 
-    println(t + " " + iterator + " " + y );
+    //println(t + " " + iterator + " " + y );
 
     return y;
   }

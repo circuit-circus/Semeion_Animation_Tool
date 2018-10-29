@@ -1,3 +1,5 @@
+import controlP5.*;
+
 GUI myGUI;
 Animation animation;
 boolean isPlaying;
@@ -7,7 +9,7 @@ void setup() {
 
   smooth();
   animation = new Animation();
-  myGUI = new GUI();
+  myGUI = new GUI(this);
   colorMode(HSB);
 }
 
@@ -21,15 +23,19 @@ void mouseDragged() {
   myGUI.mouseDragged();
 }
 
-void mouseReleased() {
-  myGUI.mouseReleased();
-}
+//void mouseReleased() {
+//  myGUI.mouseReleased();
+//}
 
 void keyPressed() {
 
   if (key == ' ') {
     isPlaying = !isPlaying;
-  }
+  } else if (keyCode == LEFT){
+    animation.stepBackward();
+  } else if (keyCode == RIGHT){
+    animation.stepForward();
+  }  
 
   myGUI.keyPressed();
 }
