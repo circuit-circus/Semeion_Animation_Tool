@@ -12,6 +12,7 @@ void setup() {
   animation = new Animation();
   myGUI = new GUI(this);
   colorMode(HSB);
+      
 }
 
 void draw() {
@@ -27,9 +28,9 @@ void keyPressed() {
 
   if (key == ' ') {
     isPlaying = !isPlaying;
-  } else if (keyCode == LEFT){
+  } else if (keyCode == LEFT) {
     animation.stepBackward();
-  } else if (keyCode == RIGHT){
+  } else if (keyCode == RIGHT) {
     animation.stepForward();
   }  
 

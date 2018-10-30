@@ -3,7 +3,7 @@ class Animation {
   float duration;
   int iterator = 0;
   boolean hasEnded = false;
-  float t;     //<>//
+  float t;  //<>// //<>// //<>//
 
   Animation() {
     myCurves = new ArrayList();
@@ -16,8 +16,8 @@ class Animation {
     myCurves.add(new Curve());
   }
 
-  void removeCurve() {
-    myCurves.remove(new Curve());
+  void removeCurve(int i) {
+    myCurves.remove(i);
   }
 
   boolean hasEnded() {
@@ -29,11 +29,35 @@ class Animation {
   }
   
   void stepForward(){
-    t += 1 / myCurves.get(iterator).curve[8]; 
+    t += 1 / myCurves.get(iterator).curve[8];
+
+      if (t > 1) {
+        t = 0;  
+
+        iterator++;
+        if (iterator > myCurves.size() - 1) {
+          iterator = 0;
+          hasEnded = true;
+        }
+      } else {
+        hasEnded = false;
+      }
   }
   
   void stepBackward(){
     t -= 1 / myCurves.get(iterator).curve[8];
+
+      if (t < 0) {
+        t = 1;  
+
+        iterator--;
+        if (iterator < 0) {
+          iterator = 0;
+          hasEnded = true;
+        }
+      } else {
+        hasEnded = false;
+      }
   }
 
   float getDuration() {
