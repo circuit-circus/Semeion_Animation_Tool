@@ -6,7 +6,8 @@ boolean isPlaying;
 
 void setup() {
   size(1800, 900);
-
+  //fullScreen();
+  frameRate(60);
   smooth();
   animation = new Animation();
   myGUI = new GUI(this);
@@ -18,14 +19,9 @@ void draw() {
   myGUI.display();
 }
 
-
 void mouseDragged() {
   myGUI.mouseDragged();
 }
-
-//void mouseReleased() {
-//  myGUI.mouseReleased();
-//}
 
 void keyPressed() {
 
@@ -38,4 +34,8 @@ void keyPressed() {
   }  
 
   myGUI.keyPressed();
+}
+
+void controlEvent(ControlEvent theEvent) {
+  myGUI.controlEvent(theEvent);
 }

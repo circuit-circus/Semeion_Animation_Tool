@@ -3,7 +3,7 @@ class Animation {
   float duration;
   int iterator = 0;
   boolean hasEnded = false;
-  float t;    //<>//
+  float t;     //<>//
 
   Animation() {
     myCurves = new ArrayList();
